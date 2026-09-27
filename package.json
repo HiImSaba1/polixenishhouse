@@ -4,23 +4,91 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "next build",
+    "build": "next build && node scripts/prepare-standalone.mjs",
     "start": "next start",
-    "lint": "eslint"
+    "lint": "eslint",
+    "typecheck": "next typegen && tsc --noEmit -p tsconfig.typecheck.json",
+    "test": "vitest run",
+    "test:coverage": "vitest run --coverage",
+    "wordpress:inspect": "tsx scripts/inspect-wordpress.ts",
+    "wordpress:media:download": "tsx scripts/download-wordpress-media.ts",
+    "wordpress:media:download:approved": "tsx scripts/download-wordpress-media.ts --execute",
+    "wordpress:vikbooking:audit": "tsx scripts/audit-vikbooking-sql.ts",
+    "admin:hash-password": "tsx scripts/hash-admin-password.ts",
+    "admin:configure-local": "node scripts/configure-local-auth.mjs",
+    "db:generate": "drizzle-kit generate",
+    "db:migrate": "drizzle-kit migrate",
+    "db:verify": "tsx scripts/verify-database.ts",
+    "db:seed:season-2027": "tsx scripts/seed-seasonal-rates.ts",
+    "smtp:test": "tsx scripts/send-smtp-test.ts",
+    "availability:smoke": "node scripts/check-local-availability.mjs",
+    "booking:smoke": "node scripts/test-booking-flow.mjs",
+    "production:preflight": "node scripts/production-preflight.mjs",
+    "production:smoke": "node scripts/check-production-site.mjs",
+    "verify:sprint-01": "npm run wordpress:inspect && npm run test && npm run lint && npm run typecheck",
+    "verify:sprint-02": "npm run test && npm run lint && npm run typecheck && npm run build"
+    ,"verify:sprint-03": "npm run test && npm run lint && npm run typecheck && npm run build"
+    ,"verify:sprint-04": "npm run test && npm run lint && npm run typecheck && npm run build"
+    ,"verify:sprint-05": "npm run test && npm run lint && npm run typecheck && npm run build"
+    ,"verify:sprint-06": "npm run test && npm run lint && npm run typecheck && npm run build"
+    ,"verify:sprint-07": "npm run test && npm run lint && npm run typecheck && npm run build"
+    ,"verify:sprint-08": "npm run test && npm run lint && npm run typecheck && npm run build"
+    ,"verify:sprint-09": "npm run test && npm run lint && npm run typecheck && npm run build"
+    ,"verify:sprint-10": "npm run test && npm run lint && npm run typecheck && npm run build"
+    ,"verify:sprint-11": "npm run test && npm run lint && npm run typecheck && npm run build"
+    ,"verify:sprint-12": "npm run test && npm run lint && npm run typecheck && npm run build"
+    ,"verify:sprint-13": "npm run test && npm run lint && npm run typecheck && npm run build"
+    ,"verify:sprint-14": "npm run test && npm run lint && npm run typecheck && npm run build"
+    ,"verify:sprint-15": "npm run test && npm run lint && npm run typecheck && npm run build"
+    ,"verify:sprint-16": "npm run test && npm run lint && npm run typecheck && npm run build"
   },
   "dependencies": {
+    "@gsap/react": "^2.1.2",
+    "@hookform/resolvers": "^5.9.1",
+    "@next/env": "16.3.6",
+    "adm-zip": "^0.6.1",
+    "class-variance-authority": "^0.7.1",
+    "clsx": "^2.1.1",
+    "drizzle-orm": "^0.45.3",
+    "embla-carousel-react": "^8.6.0",
+    "fast-xml-parser": "^5.11.1",
+    "gsap": "^3.15.0",
+    "lenis": "^1.3.26",
+    "lucide-react": "^1.48.0",
+    "motion": "^13.4.3",
+    "mysql2": "^3.15.3",
     "next": "16.3.6",
+    "next-auth": "^4.24.15",
+    "nodemailer": "^10.0.10",
     "react": "19.2.8",
-    "react-dom": "19.2.8"
+    "react-dom": "19.2.8",
+    "react-hook-form": "^7.88.0",
+    "sanitize-html": "^2.17.7",
+    "sharp": "^0.35.4",
+    "sonner": "^2.0.8",
+    "tailwind-merge": "^3.7.0",
+    "yet-another-react-lightbox": "^3.32.2",
+    "zod": "^4.6.5"
   },
   "devDependencies": {
+    "@playwright/test": "^1.63.0",
     "@tailwindcss/postcss": "^4",
-    "@types/node": "^20",
+    "@types/adm-zip": "^0.5.8",
+    "@types/node": "^22.20.4",
+    "@types/nodemailer": "^8.0.2",
     "@types/react": "^19",
     "@types/react-dom": "^19",
+    "@types/sanitize-html": "^2.16.1",
+    "@vitest/coverage-v8": "^5.0.2",
+    "drizzle-kit": "^0.31.11",
     "eslint": "^9",
     "eslint-config-next": "16.3.6",
     "tailwindcss": "^4",
-    "typescript": "^5"
+    "tsx": "^4.23.15",
+    "typescript": "^5",
+    "vitest": "^5.0.2"
+  },
+  "overrides": {
+    "nodemailer": "$nodemailer"
   }
 }

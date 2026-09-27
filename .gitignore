@@ -33,6 +33,11 @@ yarn-error.log*
 # env files (can opt-in for committing if needed)
 .env*
 
+# private legacy database exports
+/wp_polixenishouse.sql
+/polixenishouse.WordPress.2026-09-26.xml
+/artifacts/wordpress/
+
 # vercel
 .vercel
 

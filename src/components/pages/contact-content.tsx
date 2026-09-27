@@ -1,0 +1,11 @@
+import { AvailabilityCalculator } from "@/components/availability/availability-calculator";
+import { InnerPageHero } from "@/components/pages/inner-page-hero";
+import { property } from "@/data/site-content";
+
+export function ContactContent({ english = false }: { english?: boolean }) {
+  return <main id="main-content" tabIndex={-1}>
+    <InnerPageHero eyebrow={english ? "Contact" : "Επικοινωνία"} title={english ? "The first step starts with a conversation." : "Το πρώτο βήμα ξεκινά με μια επικοινωνία."} subtitle={english ? "Ask about the house, the area or the dates you have in mind." : "Ρωτήστε μας για το σπίτι, την περιοχή ή τις ημερομηνίες που σκέφτεστε."} image="/images/property/polixenis-house-picture-13.jpg" imageAlt="A warm detail from Polixeni’s House" />
+    <section className="contact-details"><header><p className="eyebrow">01 / {english ? "House details" : "Στοιχεία καταλύματος"}</p><h2>{english ? "We are here to help." : "Είμαστε εδώ για να βοηθήσουμε."}</h2></header><address><a href="mailto:info@polixenishouse.gr"><span>Email</span><strong>info@polixenishouse.gr</strong></a><a href="https://maps.google.com/?q=Sithonias+Agios+Nikolaos+63078+Greece" target="_blank" rel="noreferrer"><span>{english ? "Location" : "Τοποθεσία"}</span><strong>Σιθωνίας<br />Άγιος Νικόλαος 630 78, Ελλάδα</strong></a><p><span>{english ? "Reservations" : "Κρατήσεις"}</span><strong>{english ? "Requests are confirmed personally by the host." : "Τα αιτήματα επιβεβαιώνονται προσωπικά από την οικοδέσποινα."}</strong></p><p><span>{english ? "Arrival" : "Άφιξη"}</span><strong>{english ? `Check-in ${property.policies.checkIn}. Please share your expected arrival time in advance.` : `Άφιξη ${property.policies.checkIn}. Παρακαλούμε ενημερώστε εκ των προτέρων για την ώρα άφιξής σας.`}</strong></p><p><span>{english ? "Property licence" : "Αριθμός αδείας"}</span><strong>{property.licenceNumber}</strong></p></address></section>
+    <section className="contact-form-section" aria-labelledby="contact-request-title"><header><p className="eyebrow">02 / {english ? "Reservation request" : "Αίτημα κράτησης"}</p><h2 id="contact-request-title">{english ? "Tell us when you would like to stay." : "Πείτε μας πότε θα θέλατε να μείνετε."}</h2></header><AvailabilityCalculator /></section>
+  </main>;
+}
