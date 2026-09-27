@@ -12,6 +12,7 @@
 - Production smoke checks now cover the Greek default and English routes.
 - Booking.com iCal remains optional in production preflight until the owner enables it.
 - Type-checking regenerates production route types and excludes the concurrent development cache, preventing `.next/dev/types` and `.next/types` from conflicting.
+- The standalone runtime externalizes and packages `mysql2`, allowing the production migration runner to resolve its database driver.
 
 ## Owner verification
 

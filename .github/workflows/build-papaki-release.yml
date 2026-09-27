@@ -58,6 +58,7 @@ jobs:
           test -f .next/BUILD_ID
           test -f .next/standalone/server.js
           test -f .next/standalone/migrate-production.mjs
+          test -f .next/standalone/node_modules/mysql2/package.json
           test -d .next/standalone/.next/static
           test -d .next/standalone/public
           test -d .next/standalone/drizzle

@@ -24,6 +24,8 @@
     "availability:smoke": "node scripts/check-local-availability.mjs",
     "booking:smoke": "node scripts/test-booking-flow.mjs",
     "production:preflight": "node scripts/production-preflight.mjs",
+    "production:env:finalize": "node scripts/finalize-production-env.mjs",
+    "production:env:diagnose": "node scripts/diagnose-production-env.mjs",
     "production:smoke": "node scripts/check-production-site.mjs",
     "verify:sprint-01": "npm run wordpress:inspect && npm run test && npm run lint && npm run typecheck",
     "verify:sprint-02": "npm run test && npm run lint && npm run typecheck && npm run build"
